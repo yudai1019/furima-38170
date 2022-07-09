@@ -1,4 +1,5 @@
 <mxfile host="65bd71144e">
+<<<<<<< Updated upstream
     <diagram id="WeAunzW2MWvlvgWceDP4" name="ページ1">
         <mxGraphModel dx="622" dy="1124" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
@@ -126,6 +127,21 @@
             <root>
                 <mxCell id="3-UpGUDPLZS3DZt_eyj9-0"/>
                 <mxCell id="3-UpGUDPLZS3DZt_eyj9-1" parent="3-UpGUDPLZS3DZt_eyj9-0"/>
+=======
+    <diagram id="zyUBk5aZubg6uBUv6Waz" name="ページ1">
+        <mxGraphModel dx="452" dy="1124" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="_bEgKw20yPPf8IK_QWjx" name="ページ2">
+        <mxGraphModel dx="452" dy="1124" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0zjVWca-nPPH8aN2g0gq-0"/>
+                <mxCell id="0zjVWca-nPPH8aN2g0gq-1" parent="0zjVWca-nPPH8aN2g0gq-0"/>
+>>>>>>> Stashed changes
             </root>
         </mxGraphModel>
     </diagram>
