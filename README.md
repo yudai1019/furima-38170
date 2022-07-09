@@ -18,16 +18,17 @@ users table
  
  items table
 
-| Column           | Type     | Options     |
-| -----------------| -------- | ----------- |
-| name             | string   | null: false |
-| description_item | text     | null: false |
-| category_id      | integer  | null: false |
-| state_id         | integer  | null: false |
-| load_id          | integer  | null: false |
-| area_id          | integer  | null: false |
-| date_time_id     | integer  | null: false |
-| price            | integer  | null: false |
+| Column           | Type        | Options                        |
+| -----------------| ----------- | ------------------------------ |
+| name             | string      | null: false                    |
+| description_item | text        | null: false                    |
+| category_id      | integer     | null: false                    |
+| state_id         | integer     | null: false                    |
+| load_id          | integer     | null: false                    |
+| area_id          | integer     | null: false                    |
+| date_time_id     | integer     | null: false                    |
+| price            | integer     | null: false                    |
+| user      　     | references  | null: false, foreign_key: true | 
 
 
 - belongs_to :user
@@ -43,10 +44,10 @@ address table
 | address_num      | string      | null: false                    | 
 | building_name    | string      |                    　　　　　　  | 
 | phone_num        | string      | null: false                    | 
-| orders      　   | references  | null: false, foreign_key: true | 
+| order      　    | references  | null: false, foreign_key: true | 
 
 
-- has_one :order
+- belongs_to :order
 
 
 
