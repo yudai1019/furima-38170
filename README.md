@@ -1,24 +1,65 @@
 # README
+users table
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Column             | Type     | Options                     |
+| ------------------ | -------- | --------------------------- |
+| nickname           | string   | null: false                 |
+| email              | string   | null: false,unique: true    |
+| encrypted_password | string   | null: false                 |
+| last_name          | string   | null: false                 |
+| first_name         | string   | null: false                 |
+| last_name_kana     | string   | null: false                 |
+| first_name_kana    | string   | null: false                 |
+| date               | date     | null: false                 |
 
-Things you may want to cover:
+    
+- has_many :items
+- has_many :orders
+ 
+ items table
 
-* Ruby version
+| Column           | Type        | Options                        |
+| -----------------| ----------- | ------------------------------ |
+| name             | string      | null: false                    |
+| description_item | text        | null: false                    |
+| category_id      | integer     | null: false                    |
+| state_id         | integer     | null: false                    |
+| load_id          | integer     | null: false                    |
+| area_id          | integer     | null: false                    |
+| date_time_id     | integer     | null: false                    |
+| price            | integer     | null: false                    |
+| user      　     | references  | null: false, foreign_key: true | 
 
-* System dependencies
 
-* Configuration
+- belongs_to :user
+- has_one :order
 
-* Database creation
+address table
 
-* Database initialization
+| Column           | Type        | Options                        |
+| -----------------| ----------- | -------------------------------|
+| post_num         | string      | null: false                    |
+| area_id          | integer     | null: false                    |
+| municipality     | string      | null: false                    | 
+| address_num      | string      | null: false                    | 
+| building_name    | string      |                    　　　　　　  | 
+| phone_num        | string      | null: false                    | 
+| order      　    | references  | null: false, foreign_key: true | 
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+- belongs_to :order
 
-* Deployment instructions
 
-* ...
+
+orders table
+
+| Column        | Type      | Options                         |
+| --------------| --------- | --------------------------------|
+| user          | references| null: false , foreign_key: true |
+| item          | references| null: false , foreign_key: true |
+
+
+
+- belongs_to :user
+- belongs_to :item
+- has_one :address
