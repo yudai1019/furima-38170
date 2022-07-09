@@ -1,5 +1,5 @@
 # README
-user table
+users table
 
 | Column             | Type     | Options                     |
 | ------------------ | -------- | --------------------------- |
@@ -31,34 +31,34 @@ user table
 
 
 - belongs_to :user
-- has_one :orders
-- has_one :address
+- has_one :order
 
 address table
 
-| Column              | Type        | Options                        |
-| --------------------| ----------- | -------------------------------|
-| post_num            | string      | null: false                    |
-| area                | string      | null: false                    |
-| municipality    　　 | string      | null: false                    | 
-| address_num     　　 | string      | null: false                    | 
-| building_name   　　 | string      | null: false                    | 
-| phone_num       　　 | string      | null: false                    | 
-| orders_id       　　 | references  | null: false, foreign_key: true | 
+| Column           | Type        | Options                        |
+| -----------------| ----------- | -------------------------------|
+| post_num         | string      | null: false                    |
+| area_id          | integer     | null: false                    |
+| municipality     | string      | null: false                    | 
+| address_num      | string      | null: false                    | 
+| building_name    | string      |                    　　　　　　  | 
+| phone_num        | string      | null: false                    | 
+| orders      　   | references  | null: false, foreign_key: true | 
 
 
-- has_one :orders
-- belongs_to :items
+- has_one :order
+
 
 
 orders table
 
-| Column           | Type      | Options                         |
-| -----------------| --------- | --------------------------------|
-| user_id          | references| null: false , foreign_key: true |
-| item_id          | references| null: false , foreign_key: true |
+| Column        | Type      | Options                         |
+| --------------| --------- | --------------------------------|
+| user          | references| null: false , foreign_key: true |
+| item          | references| null: false , foreign_key: true |
+
 
 
 - belongs_to :user
 - belongs_to :item
-- belongs_to :address
+- has_one :address
