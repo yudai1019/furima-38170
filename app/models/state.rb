@@ -1,6 +1,6 @@
-class State < Activehash::Base
+class State < ActiveHash::Base
   
-  self.date = [
+  self.data = [
     {id:1,state:'---' },
     {id:2,state:'新品・未使用' },
     {id:3,state:'未使用に近い' },
@@ -11,6 +11,6 @@ class State < Activehash::Base
   ]
  
   include ActiveHash::Associations
-  has_many :articles
+  has_many:item
 
   end

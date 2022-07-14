@@ -1,6 +1,6 @@
-class Category < Activehash::Base
+class Category < ActiveHash::Base
   
-  self.date = [
+  self.data = [
     {id:1,category:'---' },
     {id:2,category:'メンズ' },
     {id:3,category:'レディース' },
@@ -13,6 +13,6 @@ class Category < Activehash::Base
     {id:10,category:'その他' }
   ]
   include ActiveHash::Associations
-  has_many :articles
+  has_many  :item
 
   end

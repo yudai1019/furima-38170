@@ -4,11 +4,12 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @items = Item.new
+    @item = Item.new
   end
 
   def create
-    Items.create(params_item)
+     Item.create(params_item)
+     redirect_to root_path
   end
 
 private
