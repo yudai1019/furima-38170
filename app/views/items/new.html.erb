@@ -81,7 +81,7 @@
           発送までの日数
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:date_time_id, Datetime.all, :id, :date_time, {}, {class:"select-box", id:"item-scheduled-delivery"}) %>
+        <%= f.collection_select(:wait_id, Wait.all, :id, :wait, {}, {class:"select-box", id:"item-scheduled-delivery"}) %>
       </div>
     </div>
     <%# /配送について %>
@@ -115,6 +115,7 @@
         </span>
       </div>
     </div>
+    
     <%# /販売価格 %>
 
     <%# 注意書き %>

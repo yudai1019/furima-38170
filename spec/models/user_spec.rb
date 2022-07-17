@@ -11,7 +11,6 @@ RSpec.describe User, type: :model do
       end
     end
   
-
     context '登録できないとき' do
       it 'emailが空では登録できない' do
         @user.email = ''
