@@ -82,6 +82,42 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('User must exist')
       end
+
+      it '画像が空では保存できない' do
+        @item.image = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Image can't be blank")
+      end
+
+      it 'Categoryのidが1であれば保存できない' do
+        @item.category_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Category must be other than 1')
+      end
+
+      it 'Stateのidが1であれば保存できない' do
+        @item.state_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include('State must be other than 1')
+      end
+
+      it 'Loadのidが1であれば保存できない' do
+        @item.load_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Load must be other than 1')
+      end
+
+      it 'Areaのidが1であれば保存できない' do
+        @item.area_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Area must be other than 1')
+      end
+
+      it 'Waitのidが1であれば保存できない' do
+        @item.wait_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Wait must be other than 1')
+      end
     end
   end
 end
