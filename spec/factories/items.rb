@@ -8,9 +8,6 @@ FactoryBot.define do
     area_id               { 2 }
     wait_id               { 2 }
     price                 { 301 }
-    association :user 
+    association :user
   end
 end
-
-
-    
