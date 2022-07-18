@@ -20,14 +20,14 @@
     </div>
     <div class="item-price-box">
       <span class="item-price">
-      ¥<%= @item.price %>
+      ¥ <%= @item.price %>
       </span>
       <span class="item-postage">
         <%= @item.load.load %>
       </span>
     </div>
 
-    <%# ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
+   
     <%if user_signed_in? %>
     <% if current_user.id == @item.user_id%>
     <%= link_to "商品の編集", "#", method: :get, class: "item-red-btn" %>
@@ -41,8 +41,7 @@
     <%# //商品が売れていない場合はこちらを表示しましょう %>
     
 
-    <%# //ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
-    <%if user_signed_in? && current_user.id == @item.user_id  %>
+    
     <div class="item-explain-box">
       <span><%= @item.description_item %></span>
     </div>
@@ -50,7 +49,7 @@
       <tbody>
         <tr>
           <th class="detail-item">出品者</th>
-          <td class="detail-value"><%= "出品者名" %></td>
+          <td class="detail-value"><%= @item.user.nickname %></td>
         </tr>
         <tr>
           <th class="detail-item">カテゴリー</th>
@@ -73,7 +72,7 @@
           <td class="detail-value"><%= @item.wait.wait %></td>
         </tr>
       </tbody>
-      <%end%>
+     
     </table>
     <div class="option">
       <div class="favorite-btn">
@@ -110,9 +109,9 @@
       後ろの商品 ＞
     </a>
   </div>
-  <%# 詳細ページで表示されている商品のカテゴリー名を表示しましょう %>
-  <a href="#" class="another-item"><%= "商品のカテゴリー名" %>をもっと見る</a>
-  <%# //詳細ページで表示されている商品のカテゴリー名を表示しましょう %>
+ 
+  <a href="#" class="another-item"><%= @item.category.category %>をもっと見る</a>
+ 
 </div>
 
 <%= render "shared/footer" %>
