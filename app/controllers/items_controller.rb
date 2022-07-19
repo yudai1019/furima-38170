@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit,:delete]
+  before_action :authenticate_user!, only: [:new, :edit,:destory]
   before_action :set_tweet, only: [:edit, :show, :update,:destroy]
   before_action :set_item,only: [:edit,:destroy]
 
@@ -38,7 +38,7 @@ class ItemsController < ApplicationController
   def destroy
    
     @item = item.destroy
-    redirect_to root_path
+    
   end
 
   private
@@ -53,6 +53,6 @@ class ItemsController < ApplicationController
   end
 
   def set_item
-    unless current_user.id == @item.user_id
+    redirect_to root_path  unless current_user.id == @item.user_id
     end
 end
