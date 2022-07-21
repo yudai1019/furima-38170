@@ -1,15 +1,25 @@
-class OrderController < ApplicationController
+class OrdersController < ApplicationController
 
   def index
-    @item_address = Itemaddress.new
+    @items = Item.includes(:user)
+    @order_address = OrderAddress.new
   end
 
   def create
-    Itemaddress.create(item_params)
+    @items = Item.includes(:user)
+    @order_address = OrderAddress.new(order_params)
+    if @order_address.valid?
+      @order_address.save
+      redirect_to root_path
+    else
+      render :index, status: :unprocessable_entity
+    end
   end
 
-  def item_params
-    params.require(:item_address).permit( :name,:description_item , :category_id,:state_id,:load_id, :wait_id,:price,:area_id,:municipality,:addressnum、:buildingname、:phonenum,:order) 
-           .merge(user_id: crrent_user.id)
+ private
+
+  def order_params
+    params.require(:order_address).permit(:municipality,:addressnum,:buildingname,:phonenum,:area_id).merge(user_id: current_user.id)
   end
+end
 
