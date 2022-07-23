@@ -12,8 +12,8 @@ class OrdersController < ApplicationController
       pay_item
       Payjp.api_key = "sk_test_fa88fa22224682e92984a383"  
       Payjp::Charge.create(
-        amount: order_params[:price],  
-        card: order_params[:token],   
+        amount: @item.price,
+        card:  order_params[:token],   
         currency: 'jpy'                 
       )
       @order_address.save
@@ -32,8 +32,8 @@ class OrdersController < ApplicationController
   def pay_item
     Payjp.api_key = "sk_test_fa88fa22224682e92984a383"  
     Payjp::Charge.create(
-      amount: order_params[:price], 
-      card: order_params[:token],    
+      amount:@item.price, 
+      card:  order_params[:token],    
       currency: 'jpy'                
     )
   end
