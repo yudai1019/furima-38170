@@ -1,7 +1,10 @@
 require 'rails_helper'
 RSpec.describe OrderAddress, type: :model do
   before do
-    @order_address = FactoryBot.build(:order_address)
+    user = FactoryBot.create(:user)
+    item = FactoryBot.create(:item)
+    @order_address = FactoryBot.build(:order_address,item_id: item.id,user_id: user.id)
+    sleep 0.05
   end
   describe '商品購入機能' do
     context '購入できる時' do
@@ -46,21 +49,21 @@ RSpec.describe OrderAddress, type: :model do
       end
 
       it '電話番号が9桁以下では購入できない' do
-        @order_address.phonenum = 'aaaaa'
+        @order_address.phonenum = '191123456'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include('Phonenum is not a number')
+        expect(@order_address.errors.full_messages).to include("Phonenum is invalid")
       end
 
       it '電話番号が12桁以上では購入できない' do
-        @order_address.phonenum = 'aaaaaaaaaaaaaaa'
+        @order_address.phonenum = '191123456789'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include('Phonenum is not a number')
-      end
+        expect(@order_address.errors.full_messages).to include("Phonenum is invalid")
+      end 
 
       it '電話番号が10桁以上11桁以内の半角数値のみ保存可能なこと' do
         @order_address.phonenum = 'aaaaaa'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include('Phonenum is not a number')
+        expect(@order_address.errors.full_messages).to include("Phonenum is invalid")
       end
 
       it '都道府県名が空だと保存できない' do

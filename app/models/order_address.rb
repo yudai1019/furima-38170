@@ -5,7 +5,7 @@ class OrderAddress
   validates :postnum, presence: true, format: { with: /\A[0-9]{3}-[0-9]{4}\z/ }
   validates :municipality, presence: true
   validates :addressnum, presence: true
-  validates :phonenum, presence: true, numericality: { with: /\A\d{10,11}\z/ }
+  validates :phonenum, presence: true, format: { with: /\A\d{10,11}\z/ }
   validates :area_id, presence: true, numericality: { other_than: 1 }
   validates :token, presence: true
   validates :user_id, presence: true

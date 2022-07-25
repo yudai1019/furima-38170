@@ -4,11 +4,10 @@ FactoryBot.define do
     area_id { 2 }
     municipality { '市町村' }
     addressnum { 3 }
-    phonenum { 123_456_789 }
+    phonenum { '1911234567' }
     token { 'tok_abcdefghijk00000000000000000' }
     buildingname{'建物'}
-    user_id {2}
-    item_id {2}
+    
     
   end
 end
