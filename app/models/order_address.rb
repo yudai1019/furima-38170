@@ -12,7 +12,7 @@ class OrderAddress
   validates :user_id
   validates :item_id
   end
-# d
+
   def save
     order = Order.create(user_id: user_id, item_id: item_id)
     Address.create(postnum: postnum, municipality: municipality, addressnum: addressnum, buildingname: buildingname,
