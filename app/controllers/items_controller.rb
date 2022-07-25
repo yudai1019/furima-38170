@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit,:destroy]
-  before_action :set_tweet, only: [:edit, :show, :update,:destroy]
-  before_action :set_item,only: [:edit,:destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :destroy]
+  before_action :set_tweet, only: [:edit, :show, :update, :destroy]
+  before_action :set_item, only: [:edit, :destroy]
 
   def index
     @items = Item.includes(:user).order(created_at: :desc)
@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    
+    redirect_to root_path if @item.user_id != current_user.id || !@item.order.nil?
   end
 
   def update
@@ -36,10 +36,8 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-   
     @item.destroy
     redirect_to root_path
-    
   end
 
   private
@@ -54,6 +52,6 @@ class ItemsController < ApplicationController
   end
 
   def set_item
-    redirect_to root_path  unless current_user.id == @item.user_id
-    end
+    redirect_to root_path unless current_user.id == @item.user_id
+  end
 end

@@ -26,7 +26,7 @@ users table
 | state_id         | integer     | null: false                    |
 | load_id          | integer     | null: false                    |
 | area_id          | integer     | null: false                    |
-| date_time_id     | integer     | null: false                    |
+| wait_id          | integer     | null: false                    |
 | price            | integer     | null: false                    |
 | user      　     | references  | null: false, foreign_key: true | 
 
@@ -38,12 +38,12 @@ address table
 
 | Column           | Type        | Options                        |
 | -----------------| ----------- | -------------------------------|
-| post_num         | string      | null: false                    |
+| postnum         | string      | null: false                    |
 | area_id          | integer     | null: false                    |
 | municipality     | string      | null: false                    | 
-| address_num      | string      | null: false                    | 
-| building_name    | string      |                    　　　　　　  | 
-| phone_num        | string      | null: false                    | 
+| addressnum      | string      | null: false                    | 
+| buildingname    | string      |                    　　　　　　  | 
+| phonenum        | string      | null: false                    | 
 | order      　    | references  | null: false, foreign_key: true | 
 
 
